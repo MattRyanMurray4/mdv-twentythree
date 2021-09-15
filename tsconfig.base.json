@@ -14,8 +14,15 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
+    "strictPropertyInitialization": false,
     "paths": {
-      "@poke/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@poke/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@poke/core-data": ["libs/core-data/src/index.ts"],
+      "@poke/core-state": ["libs/core-state/src/index.ts"],
+      "@env/environments": ["libs/environment/src/lib/environments/index.ts"],
+      "@poke/material": ["libs/material/src/index.ts"],
+      "@poke/theme": ["libs/theme/src/index.ts"],
+      "@poke/ui-library": ["libs/ui-library/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

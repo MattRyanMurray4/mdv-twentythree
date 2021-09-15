@@ -1,0 +1,72 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title *ngIf="currentPokemon.id; else submitNew">
+      <h1>
+        {{ originalName }}
+      </h1>
+    </mat-card-title>
+    <ng-template #submitNew> <h1>Submit a New Pokemon</h1> </ng-template>
+  </mat-card-header>
+  <form
+    [formGroup]="form"
+    #formDirective="ngForm"
+    (ngSubmit)="saveForm(formDirective)"
+  >
+    <mat-card-content>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>Name</mat-label>
+        <input
+          matInput
+          placeholder="Name"
+          formControlName="name"
+          type="text"
+          name="name"
+        />
+        <mat-error *ngIf="form.get('name')">Required Field</mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>Height</mat-label>
+        <input
+          matInput
+          placeholder="Height"
+          formControlName="height"
+          type="number"
+          name="height"
+        />
+        <mat-error *ngIf="form.get('height')">Required Field</mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>Weight </mat-label>
+        <input
+          matInput
+          placeholder="Weight "
+          formControlName="weight"
+          type="number"
+          name="weight"
+        />
+        <mat-error *ngIf="form.get('weight')">Required Field</mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>Base Experience</mat-label>
+        <input
+          matInput
+          placeholder="Base Experience"
+          formControlName="base_experience"
+          type="text"
+          name="base_experience"
+        />
+        <mat-error *ngIf="form.get('base_experience')"
+          >Required Field</mat-error
+        >
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <mat-card-actions>
+        <button type="submit" mat-button [disabled]="form.invalid">
+          {{ currentPokemon.id ? 'Submit' : 'Create' }}
+        </button>
+        <button type="button" mat-button (click)="cancel()">Cancel</button>
+      </mat-card-actions>
+    </mat-card-actions>
+  </form>
+</mat-card>

@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Message } from '@poke/api-interfaces';
 
 @Component({
   selector: 'poke-root',
@@ -8,6 +6,9 @@ import { Message } from '@poke/api-interfaces';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  hello$ = this.http.get<Message>('/api/hello');
-  constructor(private http: HttpClient) {}
+  title = 'Pokemon-App';
+  links = [
+    // { path: '/', icon: 'login', title: 'Login' },
+    { path: 'pokemon', icon: 'info', title: 'Pokemon' },
+  ];
 }

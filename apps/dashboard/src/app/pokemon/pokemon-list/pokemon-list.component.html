@@ -1,0 +1,22 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title> <h1>Select a Pokemon</h1> </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item
+        *ngFor="let pokemon of pokemons"
+        (click)="selected.emit(pokemon)"
+        class="mat-list-item"
+      >
+        <h1 matLine>{{ pokemon.name }}</h1>
+        <button
+          mat-icon-button
+          (click)="deleted.emit(pokemon); $event.stopImmediatePropagation()"
+        >
+          <mat-icon *ngIf="!readonly">cancel</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="col-50" layout="row" layout-align="center center">
+    <poke-pokemon-list
+      [pokemons]="pokemons$ | async"
+      (selected)="selectPokemon($event)"
+      (deleted)="deletePokemon($event)"
+    ></poke-pokemon-list>
+  </div>
+  <div class="col-50" layout="row" layout-align="center center">
+    <poke-pokemon-details
+      [form]="form"
+      [pokemon]="selectedPokemon$ | async"
+      (cancelled)="cancel()"
+    ></poke-pokemon-details>
+  </div>
+</div>
